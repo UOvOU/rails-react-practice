@@ -25,6 +25,12 @@ var ProductApplication = React.createClass({
         products.push(product);
         this.setState({ products: products });
     },
+    handleDeleteRecord: function(product) {
+        var products = this.state.products.slice();
+        var index = products.indexOf(product);
+        products.splice(index, 1);
+        this.setState({ products: products });
+    },
     render: function() {
         return(
             <div className="container">
@@ -42,7 +48,8 @@ var ProductApplication = React.createClass({
 
                 <div className="row">
                     <div className="col-md-12">
-                        <ProductTable products={this.state.products}/>
+                        <ProductTable products={this.state.products}
+                                      handleDeleteRecord={this.handleDeleteRecord}/>
                     </div>
                 </div>
             </div>

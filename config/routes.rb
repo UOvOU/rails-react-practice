@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root 'dashboard#index'
-  resources :products, only: [:index, :create] do
+  resources :products, only: [:index, :create, :destroy] do
     get :search, on: :collection
   end
 
